@@ -1,0 +1,24 @@
+#!/bin/bash
+
+function func {
+  if [ "$1" == "-l" ]; then
+    ls /mnt/data/python-virtualenv
+    return;
+  fi
+
+  if [ "$1" == "" ]; then
+    echo "No environment given"
+    return;
+  fi
+
+  PYPATH=/mnt/data/python-virtualenv/$1/bin/activate
+
+  if [ ! -f $PYPATH ]; then
+    echo "Environment of activate file does not exist"
+    return;
+  fi
+
+  . $PYPATH
+}
+
+func $@
