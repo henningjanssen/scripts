@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+set -e
+
 # Ask for the key-file
 read -p "File to store the key in: " kf
 
