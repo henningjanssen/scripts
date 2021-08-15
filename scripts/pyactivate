@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 function func {
   if [ "$1" == "-l" ]; then
