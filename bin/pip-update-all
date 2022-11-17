@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+set pipefail
+
+python3 -m pip list --outdated |grep -i -v "Package" | grep -i -v '\-' |cut -d ' '  -f1|xargs python3 -m pip install -U
