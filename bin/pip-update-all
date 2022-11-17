@@ -2,4 +2,10 @@
 set -e
 set pipefail
 
-python3 -m pip list --outdated |grep -i -v "Package" | grep -i -v '\-' |cut -d ' '  -f1|xargs python3 -m pip install -U
+echo "This can be a bad idea. Only execute this if you know what you are doing."
+
+pkgs=$(python3 -m pip list --outdated | grep -i -v "Package" | grep -i -v '\-' | cut -d ' '  -f1)
+
+for p in $pkgs; do
+  python3 -m pip install -U "$p" ||:
+done
